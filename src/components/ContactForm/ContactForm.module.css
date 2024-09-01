@@ -1,0 +1,7 @@
+.form {
+    border: 2px, solid, black;
+    border-radius: 10px;
+    /* display: flex;
+    justify-content: column;
+    align-items: left; */
+}
