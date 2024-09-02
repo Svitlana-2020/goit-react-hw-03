@@ -31,14 +31,15 @@ const contactFormSchema = Yup.object({
                 >
 
         <Form className={css.form}>
+           
             <label htmlFor={nameId} className={css.label}>Name</label>
         <Field type="text" name="username" className={css.name} id={nameId}></Field>
         <ErrorMessage name="username" component="span" className={css.error} />
-
+                
             <label htmlFor={numberId} className={css.label}>Number</label>
         <Field type="text" name="number" className={css.name} id={numberId}></Field>
         <ErrorMessage name="number" component="span" className={css.error} />
-
+       
         <button type="submit" className={css.button}>Add contact</button>
         </Form>
         
