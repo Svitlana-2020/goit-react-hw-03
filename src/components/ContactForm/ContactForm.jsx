@@ -11,7 +11,9 @@ const numberId = useId();
 
 const contactFormSchema = Yup.object({
     username: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
-    number: Yup.number().min(3, "Too Short!").max("50", "Too Long!").required("Required")
+    number: Yup.string()
+    .matches(/^\d{3}-\d{2}-\d{2}$/, "Invalid phone number format")
+    .required("Required")
 })
 
     return (
