@@ -13,47 +13,80 @@ const contactsAr = contactsArr.map(contact => ({
 
 console.log(contactsAr)
 
-
 function App() {
   const [filter, setFilter] = useState("");
-  const [filteredContacts, setFilteredContacts] = useState(contactsAr);
   const [contacts, setContact] = useState([]);
+
 
   const handleFilter = (evt) => {
     const filterValue = evt.target.value;
     setFilter(filterValue);
-    const filteredContact = contactsAr.filter((contact) =>
-      contact.username.toLowerCase().includes(filterValue.toLowerCase())
-    );
-    setFilteredContacts(filteredContact);
   };
-
   const handleSubmit = ({ username, number }) => {
     const newContact = {
       id: nanoid(),
       username,
       number,
     };
-
     setContact(prevContacts => [...prevContacts, newContact]);
   };
-
   const handleDelete = (id) => {
     setContact(prevContacts => prevContacts.filter(contact => contact.id !== id));
-    console.log(id)
   };
-
+ const filteredContact = contacts.filter((contact) =>
+      contact.username.toLowerCase().includes(filter.toLowerCase())
+    );
   return (
     <>
       <h1 className="title">Phonebook</h1>
-    
-      <ContactForm value={contacts} onSubmit={handleSubmit} />
-      {/* <ContactList contacts={contacts} /> */}
-      <ContactList contacts={filteredContacts} handleDelete={handleDelete} />
-      {/* <ContactList contacts={filteredContacts} /> */}
+      <ContactForm  onSubmit={handleSubmit} />
+      <ContactList contacts={filteredContact} handleDelete={handleDelete} />
       <SearchBox value={filter} onChange={handleFilter} />
     </>
   );
 }
+
+
+// function App() {
+//   const [filter, setFilter] = useState("");
+//   const [filteredContacts, setFilteredContacts] = useState(contactsAr);
+//   const [contacts, setContact] = useState([]);
+
+//   const handleFilter = (evt) => {
+//     const filterValue = evt.target.value;
+//     setFilter(filterValue);
+//     const filteredContact = contactsAr.filter((contact) =>
+//       contact.username.toLowerCase().includes(filterValue.toLowerCase())
+//     );
+//     setFilteredContacts(filteredContact);
+//   };
+
+//   const handleSubmit = ({ username, number }) => {
+//     const newContact = {
+//       id: nanoid(),
+//       username,
+//       number,
+//     };
+
+//     setContact(prevContacts => [...prevContacts, newContact]);
+//   };
+
+//   const handleDelete = (id) => {
+//     setContact(prevContacts => prevContacts.filter(contact => contact.id !== id));
+//     console.log(id)
+//   };
+
+//   return (
+//     <>
+//       <h1 className="title">Phonebook</h1>
+    
+//       <ContactForm value={contacts} onSubmit={handleSubmit} />
+//       {/* <ContactList contacts={contacts} /> */}
+//       <ContactList contacts={filteredContacts} handleDelete={handleDelete} />
+//       {/* <ContactList contacts={filteredContacts} /> */}
+//       <SearchBox value={filter} onChange={handleFilter} />
+//     </>
+//   );
+// }
 
 export default App;
