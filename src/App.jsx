@@ -49,7 +49,7 @@ function App() {
     
       <ContactForm value={contacts} onSubmit={handleSubmit} />
       {/* <ContactList contacts={contacts} /> */}
-      <ContactList contacts={contacts} onClick={handleDelete} />
+      <ContactList contacts={contacts} handleDelete={handleDelete} />
       <ContactList contacts={filteredContacts} />
       <SearchBox value={filter} onChange={handleFilter} />
     </>
