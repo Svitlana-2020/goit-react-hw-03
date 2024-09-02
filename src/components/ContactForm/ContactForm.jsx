@@ -36,7 +36,7 @@ const contactFormSchema = Yup.object({
         <ErrorMessage name="username" component="span" className={css.error} />
 
             <label htmlFor={numberId} className={css.label}>Number</label>
-        <Field type="number" name="number" className={css.name} id={numberId}></Field>
+        <Field type="text" name="number" className={css.name} id={numberId}></Field>
         <ErrorMessage name="number" component="span" className={css.error} />
 
         <button type="submit" className={css.button}>Add contact</button>
