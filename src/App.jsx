@@ -48,15 +48,16 @@ function App() {
     <>
       <h1 className="title">Phonebook</h1>
       <ContactForm  onSubmit={handleSubmit} />
-      {/* <ContactList contacts={contacts}/> */}
-      <ContactList contacts={filteredContact} handleDelete={handleDelete} />
-      {/* <ContactList contacts={filteredContact} handleDelete={handleDelete} /> */}
+      <ContactList contacts={filteredContact} handleDelete={handleDelete}>
+       </ContactList>
       <SearchBox value={filter} onChange={handleFilter} />
     </>
   );
 }
 
 
+  {/* <ContactList contacts={contacts}/> */}
+{/* <ContactList contacts={filteredContact} handleDelete={handleDelete} /> */}
 // function App() {
 //   const [filter, setFilter] = useState("");
 //   const [filteredContacts, setFilteredContacts] = useState(contactsAr);
