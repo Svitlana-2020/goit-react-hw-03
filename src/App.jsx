@@ -17,13 +17,13 @@ function App() {
   const [filter, setFilter] = useState("");
   const [contacts, setContact] = useState(() => {
     const savedContacts = localStorage.getItem('contacts');
-    return (savedContacts ? JSON.parse(savedContacts) : contactsAr);
+    return savedContacts ? JSON.parse(savedContacts) : contactsAr;
   });
 
 
-  useEffect (() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts), [contacts])
-  })
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]); 
 
   const handleFilter = (evt) => {
     const filterValue = evt.target.value;
@@ -48,8 +48,8 @@ function App() {
     <>
       <h1 className="title">Phonebook</h1>
       <ContactForm  onSubmit={handleSubmit} />
-      <ContactList contacts={filteredContact} handleDelete={handleDelete}>
-       </ContactList>
+      <ContactList contacts={filteredContact} handleDelete={handleDelete}/>
+       
       <SearchBox value={filter} onChange={handleFilter} />
     </>
   );
